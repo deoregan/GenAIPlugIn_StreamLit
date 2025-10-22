@@ -10,7 +10,7 @@ Then follow these steps:
 > 4. Install all required Python libraries in one go with:      
 > *pip install -r requirements.txt*    
       *Note*: This may reinstall a different version of already installed libraries and hence cause issues with dependencies. If you wish to avoid this then you can also install the libraries one by one with *pip install library_name*
-> 5. Get API keys for Google Gemini and OpenAI
+> 5. Get API keys for Google Gemini and OpenAI (see details in the next section)
 > 6. Set the values of these string variables at the top of *catalog.py* in the catalog folder:    
 > *root_folder* : The path to your local repo (use C:/ for drives and / as subfolder separator, this should work on all operating systems including Windows).    
 > *api_key_gemini* : Your Google Gemini API key.    
