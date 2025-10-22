@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation of the Solvency Position results</title>
+    <style>
+        /* Ensure the body content is scrollable in HTML */
+        body {
+            /*padding-top: 70px; Space for fixed header */
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+            overflow-y: auto; /* Allows vertical scrolling */
+            font-family: Arial, sans-serif;
+            text-align: justify;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            overflow-x: auto; /* Keep the overflow-x style if necessary */
+        }
+
+        .header {
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            /* height: 70px;  */
+            height: 10px;
+            overflow: hidden;       
+            background-color: white; 
+            text-align: right;
+            padding-right: 20px;
+            padding-top: 10px;
+            z-index: 1000;  
+        }
+
+        /* Center-align the title with class "report-title" */
+        .report-title {
+            text-align: center;
+            margin-top: 80px;  /* Adjust this value as needed */
+
+        }
+
+        /* Left-align all <h1> and <h2> except the one with class "report-title" */
+        h1:not(.report-title), h2 {
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        caption {
+            caption-side: top;
+            text-align: left;
+            font-style: italic;
+            font-size: 1.0em;
+            margin-bottom: 6px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th:first-child, td:first-child {
+            width: auto; /* First column (€m) fills remaining space */
+            text-align: left; /* Align text to the left */
+        }
+        th:nth-child(n+2), td:nth-child(n+2) {
+            width: 15%; /* Fixed width for result columns */
+        }
+
+        thead th {
+            background-color: darkblue; /* Dark blue background */
+            color: white; /* White text */
+        }
+
+        .highlight-row {
+            background-color: lightblue; /* Light blue background */
+        }
+
+
+        /* Remove scrollbar issue in PDF */
+        img {
+            max-width: 100%;  /* Ensure the image scales correctly */
+            height: auto;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        figcaption {
+            font-style: italic;
+            text-align: left;
+            margin: 0; /* Ensure no indent or extra space */
+            padding: 0; /* Ensure no indent or extra space */}
+    
+      
+        /* Fixed header with logo */
+        .logo {
+            max-height: 80px; /* Adjust size as needed */
+            margin-right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+    <!--  -->
+    </div>
+
+    <h1 class="report-title"><b>Validation of SCR inputs for year-end 2026</b></h1>
+
+    <!-- Introduction section -->
+    <section>
+
+    <h1>1. Purpose</h1>
+        <p>This report summarises the validation results on the Solvency Position of Smart Insurance Ltd (the Company) for year-end 2026<br>   
+        </p>
+    </section>
+
+    <!-- Scope subsection -->
+    <section>
+    <h1>2. Scope</h1>
+            <p>The scope of this validation report covers the annual results of Smart Insurance Ltd in terms of:
+                <li>Solvency Capital Requirement (SCR)  </li>
+                <li>Own Funds</li>
+                <li>Solvency Ratio</li>
+                <br>
+               The scope of validation is for internal consistency only to make items calculated in the input Excel file - totals, movements and movement percentages -  are consistent with the more granular inputs.
+
+               The scope excludes checks on raw inputs for 2026 and 2025, in particular:
+               <li>BSCR by module</li>
+               <li>Operational risk and Deferred Tax </li>
+               <li>Own Funds</li>
+
+    </p>
+    </section>
+    
+    
+    <!-- Results section -->
+    <section>
+    <h1>3. Results</h1>   
+        <p>Table 1 below summarises validation results of the Solvency Postion of Smart Insurance Ltd for year-end 2026. </p> 
+        
+        <style type="text/css">
+#T_b05c3_row0_col3, #T_b05c3_row0_col4, #T_b05c3_row1_col3, #T_b05c3_row1_col4, #T_b05c3_row2_col3, #T_b05c3_row2_col4, #T_b05c3_row3_col3, #T_b05c3_row3_col4, #T_b05c3_row4_col3, #T_b05c3_row4_col4, #T_b05c3_row6_col3, #T_b05c3_row6_col4, #T_b05c3_row7_col3, #T_b05c3_row7_col4 {
+  background-color: green;
+  color: white;
+}
+#T_b05c3_row5_col0, #T_b05c3_row8_col0, #T_b05c3_row9_col0, #T_b05c3_row10_col0 {
+  font-weight: bold;
+}
+#T_b05c3_row5_col1, #T_b05c3_row5_col2, #T_b05c3_row5_col3, #T_b05c3_row5_col4, #T_b05c3_row8_col1, #T_b05c3_row8_col2, #T_b05c3_row8_col3, #T_b05c3_row8_col4, #T_b05c3_row9_col1, #T_b05c3_row9_col2, #T_b05c3_row9_col3, #T_b05c3_row9_col4, #T_b05c3_row10_col1, #T_b05c3_row10_col2, #T_b05c3_row10_col3, #T_b05c3_row10_col4 {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+</style>
+<table id="T_b05c3">
+  <caption>Table 1 - Results of the validation checks for the Solvency Position of Smart Insurance Ltd</caption>
+  <thead>
+    <tr>
+      <th id="T_b05c3_level0_col0" class="col_heading level0 col0" >€m</th>
+      <th id="T_b05c3_level0_col1" class="col_heading level0 col1" >2026</th>
+      <th id="T_b05c3_level0_col2" class="col_heading level0 col2" >2025</th>
+      <th id="T_b05c3_level0_col3" class="col_heading level0 col3" >Movement</th>
+      <th id="T_b05c3_level0_col4" class="col_heading level0 col4" >Movement %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_b05c3_row0_col0" class="data row0 col0" >Market</td>
+      <td id="T_b05c3_row0_col1" class="data row0 col1" ></td>
+      <td id="T_b05c3_row0_col2" class="data row0 col2" ></td>
+      <td id="T_b05c3_row0_col3" class="data row0 col3" >0.00</td>
+      <td id="T_b05c3_row0_col4" class="data row0 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row1_col0" class="data row1 col0" >Counterparty Default</td>
+      <td id="T_b05c3_row1_col1" class="data row1 col1" ></td>
+      <td id="T_b05c3_row1_col2" class="data row1 col2" ></td>
+      <td id="T_b05c3_row1_col3" class="data row1 col3" >0.00</td>
+      <td id="T_b05c3_row1_col4" class="data row1 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row2_col0" class="data row2 col0" >Life</td>
+      <td id="T_b05c3_row2_col1" class="data row2 col1" ></td>
+      <td id="T_b05c3_row2_col2" class="data row2 col2" ></td>
+      <td id="T_b05c3_row2_col3" class="data row2 col3" >0.00</td>
+      <td id="T_b05c3_row2_col4" class="data row2 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row3_col0" class="data row3 col0" >Health</td>
+      <td id="T_b05c3_row3_col1" class="data row3 col1" ></td>
+      <td id="T_b05c3_row3_col2" class="data row3 col2" ></td>
+      <td id="T_b05c3_row3_col3" class="data row3 col3" >0.00</td>
+      <td id="T_b05c3_row3_col4" class="data row3 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row4_col0" class="data row4 col0" >Diversification</td>
+      <td id="T_b05c3_row4_col1" class="data row4 col1" ></td>
+      <td id="T_b05c3_row4_col2" class="data row4 col2" ></td>
+      <td id="T_b05c3_row4_col3" class="data row4 col3" >0.00</td>
+      <td id="T_b05c3_row4_col4" class="data row4 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row5_col0" class="data row5 col0" >Basic SCR</td>
+      <td id="T_b05c3_row5_col1" class="data row5 col1" >0.00</td>
+      <td id="T_b05c3_row5_col2" class="data row5 col2" >0.00</td>
+      <td id="T_b05c3_row5_col3" class="data row5 col3" >0.00</td>
+      <td id="T_b05c3_row5_col4" class="data row5 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row6_col0" class="data row6 col0" >Operational Risk</td>
+      <td id="T_b05c3_row6_col1" class="data row6 col1" ></td>
+      <td id="T_b05c3_row6_col2" class="data row6 col2" ></td>
+      <td id="T_b05c3_row6_col3" class="data row6 col3" >0.00</td>
+      <td id="T_b05c3_row6_col4" class="data row6 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row7_col0" class="data row7 col0" >Deferred Tax Adjustment</td>
+      <td id="T_b05c3_row7_col1" class="data row7 col1" ></td>
+      <td id="T_b05c3_row7_col2" class="data row7 col2" ></td>
+      <td id="T_b05c3_row7_col3" class="data row7 col3" >0.00</td>
+      <td id="T_b05c3_row7_col4" class="data row7 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row8_col0" class="data row8 col0" >Total SCR</td>
+      <td id="T_b05c3_row8_col1" class="data row8 col1" >0.00</td>
+      <td id="T_b05c3_row8_col2" class="data row8 col2" >0.00</td>
+      <td id="T_b05c3_row8_col3" class="data row8 col3" >0.00</td>
+      <td id="T_b05c3_row8_col4" class="data row8 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row9_col0" class="data row9 col0" >Own Funds</td>
+      <td id="T_b05c3_row9_col1" class="data row9 col1" >0.00</td>
+      <td id="T_b05c3_row9_col2" class="data row9 col2" >0.00</td>
+      <td id="T_b05c3_row9_col3" class="data row9 col3" >0.00</td>
+      <td id="T_b05c3_row9_col4" class="data row9 col4" >0.00</td>
+    </tr>
+    <tr>
+      <td id="T_b05c3_row10_col0" class="data row10 col0" >Solvency Ratio</td>
+      <td id="T_b05c3_row10_col1" class="data row10 col1" >0.00</td>
+      <td id="T_b05c3_row10_col2" class="data row10 col2" >0.00</td>
+      <td id="T_b05c3_row10_col3" class="data row10 col3" >0.00</td>
+      <td id="T_b05c3_row10_col4" class="data row10 col4" >0.00</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </section>
+
+    <!-- Conclustion section -->
+    <section>
+        <h1>4. Conclusion</h1>
+        <p> <b>All validation checks</b> passed which means that the Solvency Position of Smart Insurance Ltd                                          at year-end 2026 is internal internally consistent. The validation threshold used is 0.001. </p>
+    </section>
+
+</body>
+</html>

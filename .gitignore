@@ -1,0 +1,12 @@
+# Byte-compiled / cache
+__pycache__/
+
+# Conda environment (optional)
+environment.yml
+
+# secrets
+.env
+*.env
+.env.*
+secrets.*
+config_local.py.env

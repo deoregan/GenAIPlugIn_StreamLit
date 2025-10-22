@@ -1,0 +1,10 @@
+matplotlib>=3.10.7
+numpy>=2.3.4
+pandas>=2.3.3
+openai==0.28.0
+beautifulsoup4==4.14.2
+Jinja2==3.1.6
+pdfkit==1.0.0
+protobuf==6.33.0
+python_docx==1.2.0
+streamlit==1.37.1

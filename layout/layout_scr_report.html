@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solvency Position Report</title>
+    <style>
+        /* Ensure the body content is scrollable in HTML */
+        body {
+            /*padding-top: 70px; Space for fixed header */
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+            overflow-y: auto; /* Allows vertical scrolling */
+            font-family: Arial, sans-serif;
+            text-align: left;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            overflow-x: auto; /* Keep the overflow-x style if necessary */
+            text-align: left;
+        }
+            
+        p {
+            text-align: left;
+        }
+
+        /* Remove scrollbar issue in PDF */
+        img {
+            max-width: 100%;  /* Ensure the image scales correctly */
+            height: auto;
+        }
+        
+        /* Fixed header */
+        .header {
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            /* height: 70px;  */
+            height: 10px;
+            overflow: hidden;       
+            background-color: white; 
+            text-align: right;
+            padding-right: 20px;
+            padding-top: 10px;
+            z-index: 1000;  
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: right;
+        }
+        th:first-child, td:first-child {
+            width: auto; /* First column (€m) fills remaining space */
+            text-align: left; /* Align text to the left */
+        }
+        th:nth-child(n+2), td:nth-child(n+2) {
+            width: 15%; /* Fixed width for result columns */
+        }
+
+        /* Center-align the title with class "report-title" */
+        .report-title {
+            text-align: center;
+            margin-top: 80px;  /* Adjust this value as needed */
+
+        }
+
+        /* Left-align all <h1> and <h2> except the one with class "report-title" */
+        h1:not(.report-title), h2 {
+            text-align: left;
+        }
+
+        thead th {
+            background-color: darkblue; /* Dark blue background */
+            color: white; /* White text */
+        }
+
+        .highlight-row {
+            background-color: lightblue; /* Light blue background */
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        figcaption {
+            font-style: italic;
+            text-align: left;
+            margin: 0; /* Ensure no indent or extra space */
+            padding: 0; /* Ensure no indent or extra space */}
+    
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+
+    </div>
+
+    <h1 class="report-title"><b>SCR results for year-end {{current_year}}</b></h1>
+
+    <!-- Introduction section -->
+    <section>
+        <h1>1. Introduction</h1>
+
+        <!-- Overview subsection -->
+        <section>
+            <h2>1.1 Overview</h2>
+            <p>This report summarises the Solvency Position of Smart Insurance Ltd (the Company) for year-end {{current_year}} with comparison to the previous year-end.
+                <br><br>{{solvency_ratio_movement_wording_code}} Analysis of the drivers of the results is provided in Section 2. </p>
+        </section>
+
+        <!-- Background subsection -->
+        <section>
+            <h2>1.2 Background</h2>
+            <p>{{background_wording}}</p>
+        </section>
+
+        <!-- Scope subsection -->
+        <section>
+            <h2>1.3 Scope</h2>
+            <p>The scope of this report covers the annual results of Smart Insurance Ltd in terms of:
+                <ul>
+                    <li>Solvency Capital Requirement (SCR)  </li>
+                    <li>Own Funds</li>
+                    <li>Solvency Ratio</li>
+                </ul>        
+        </p>
+        </section>
+
+    </section>
+    
+    
+    <!-- Results section -->
+    <section>
+    <h1>2. Results</h1>   
+        <p>Table 1 below summarises the solvency position of the entity for year-end {{current_year}}. </p> 
+        
+        <div style="overflow-x: auto;">
+            <table>
+                <caption style="font-style: italic; text-align: left;">Table 1 – Summary of Solvency Position {{current_year}} vs {{previous_year}} </caption>
+                <thead>
+                    <tr>
+                        {% for col in df.columns %}
+                            <th>{{ col }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in df.itertuples(index=False) %}
+                        <tr {% if row[0] == "Basic SCR" or row[0] == "Total SCR" or row[0] == "Own Funds" or row[0] == "Solvency Ratio" %} class="highlight-row" {% endif %}>
+                            <td>{% if row[0] == "Basic SCR" or row[0] == "Total SCR" or row[0] == "Own Funds" or row[0]=="Solvency Ratio" %}<strong>{{ row[0] }}</strong>{% else %}{{ row[0] }}{% endif %}</td>
+                            <td>{% if row[0] == "Basic SCR" or row[0] == "Total SCR" or row[0] == "Own Funds" or row[0]=="Solvency Ratio" %}<strong>{{ row[1] }}</strong>{% else %}{{ row[1] }}{% endif %}</td>
+                            <td>{% if row[0] == "Basic SCR" or row[0] == "Total SCR" or row[0] == "Own Funds" or row[0]=="Solvency Ratio" %}<strong>{{ row[2] }}</strong>{% else %}{{ row[2] }}{% endif %}</td>
+                            <td>{% if row[0] == "Basic SCR" or row[0] == "Total SCR" or row[0] == "Own Funds" or row[0]=="Solvency Ratio" %}<strong>{{ row[3] }}</strong>{% else %}{{ row[3] }}{% endif %}</td>
+                            <td>{% if row[0] == "Basic SCR" or row[0] == "Total SCR" or row[0] == "Own Funds" or row[0]=="Solvency Ratio" %}<strong>{{ row[4] }}</strong>{% else %}{{ row[4] }}{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>                      
+            </table>
+        </div>
+        
+        <br>
+        <br>
+        <br>
+        <p>The table shows that:
+            {{results_analysis_wording}}
+        </p>
+
+        <div style="display: block; text-align: center;">
+            <figure style="width: 50%; margin-bottom: 20px;">
+                {{ bscr_current_chart_html_tag }}
+                <figcaption style="font-style: italic; text-align: left;">Figure 1: Composition of the Basic SCR - {{current_year}}</figcaption>
+            </figure>
+        
+            <figure style="width: 50%;">
+                {{ bscr_previous_chart_html_tag }}
+                <figcaption style="font-style: italic; text-align: left;">Figure 2: Composition of the Basic SCR - {{previous_year}}</figcaption>
+            </figure>
+        </div>
+
+        <p>{{bscr_percentage_movement_wording_code}} The increase in Life and Health risks is due to growth in business volume. Most of the growth came from Health Risks due to the introduction of a new product called ProtectMe.
+        </p>
+
+
+    </section>
+
+    <!-- Conclustion section -->
+    <section>
+        <h1>3. Conclusion</h1>
+        <p>{{target_solvency_ratio_wording_code}} <br>
+           {{conclusion_wording}}  </p>
+    </section>
+
+</body>
+</html>

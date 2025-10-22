@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation of the Solvency Position results</title>
+    <style>
+        /* Ensure the body content is scrollable in HTML */
+        body {
+            /*padding-top: 70px; Space for fixed header */
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+            overflow-y: auto; /* Allows vertical scrolling */
+            font-family: Arial, sans-serif;
+            text-align: justify;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            overflow-x: auto; /* Keep the overflow-x style if necessary */
+        }
+
+        .header {
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            /* height: 70px;  */
+            height: 10px;
+            overflow: hidden;       
+            background-color: white; 
+            text-align: right;
+            padding-right: 20px;
+            padding-top: 10px;
+            z-index: 1000;  
+        }
+
+        /* Center-align the title with class "report-title" */
+        .report-title {
+            text-align: center;
+            margin-top: 80px;  /* Adjust this value as needed */
+
+        }
+
+        /* Left-align all <h1> and <h2> except the one with class "report-title" */
+        h1:not(.report-title), h2 {
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        caption {
+            caption-side: top;
+            text-align: left;
+            font-style: italic;
+            font-size: 1.0em;
+            margin-bottom: 6px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th:first-child, td:first-child {
+            width: auto; /* First column (€m) fills remaining space */
+            text-align: left; /* Align text to the left */
+        }
+        th:nth-child(n+2), td:nth-child(n+2) {
+            width: 15%; /* Fixed width for result columns */
+        }
+
+        thead th {
+            background-color: darkblue; /* Dark blue background */
+            color: white; /* White text */
+        }
+
+        .highlight-row {
+            background-color: lightblue; /* Light blue background */
+        }
+
+
+        /* Remove scrollbar issue in PDF */
+        img {
+            max-width: 100%;  /* Ensure the image scales correctly */
+            height: auto;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        figcaption {
+            font-style: italic;
+            text-align: left;
+            margin: 0; /* Ensure no indent or extra space */
+            padding: 0; /* Ensure no indent or extra space */}
+    
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+    </div>
+
+    <h1 class="report-title"><b>Validation of SCR inputs for year-end {{current_year}}</b></h1>
+
+    <!-- Introduction section -->
+    <section>
+
+    <h1>1. Purpose</h1>
+        <p>This report summarises the validation results on the Solvency Position of Smart Insurance Ltd (the Company) for year-end {{current_year}}<br>   
+        </p>
+    </section>
+
+    <!-- Scope subsection -->
+   <section>
+    <h1>2. Scope</h1>
+
+        <p>
+         The scope of this validation report covers the annual results of Smart Insurance Ltd in terms of:
+        </p>
+  
+        <ul>
+            <li>Solvency Capital Requirement (SCR)</li>
+            <li>Own Funds</li>
+            <li>Solvency Ratio</li>
+        </ul>
+
+        <p>
+        The scope of validation is for internal consistency only to make items calculated in the input Excel file—totals, movements and movement percentages—are consistent with the more granular inputs.
+        </p>
+
+        <p>
+        The scope excludes checks on raw inputs for {{current_year}} and {{previous_year}}, in particular:
+        </p>
+  
+        <ul>
+            <li>BSCR by module</li>
+            <li>Operational risk and Deferred Tax</li>
+            <li>Own Funds</li>
+        </ul>
+    
+    </section>
+    
+    <!-- Results section -->
+    <section>
+    <h1>3. Results</h1>   
+        <p>Table 1 below summarises validation results of the Solvency Postion of Smart Insurance Ltd for year-end {{current_year}}. </p> 
+        
+        {{ df|safe }}
+
+    </section>
+
+    <!-- Conclustion section -->
+    <section>
+        <h1>4. Conclusion</h1>
+        <p> {{ validation_conclusion_wording }} </p>
+    </section>
+
+</body>
+</html>
