@@ -1,7 +1,7 @@
 # Set user-specific inputs
 # See ReadMe file for instructions on how to obtain API keys
 root_folder     = 'C:\Users\deore\Documents\anaconda_projects\streamlit_pdf'
-api_key_gemini  = 'your_gemini_api_key_here'
+api_key_gemini  = 'GEMINI_API_KEY'
 api_key_openai  = 'your_openai_api_key_here'
 
 
